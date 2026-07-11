@@ -1,15 +1,45 @@
-import Chai from "./Chai";
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from './assets/vite.svg'
+import heroImg from './assets/hero.png'
+import './App.css'
 
 function App() {
-  const username = "chai aur code"
+
+  const [count, setCount] = useState(0);
+
+  const increase = () => {
+    setCount(count + 1)
+  }
+
+
+  const decrease = () => {
+    if (count > 0) {
+      setCount(count - 1);
+    }
+  }
+
+  const reset = () => {
+    setCount(0)
+  }
+
   return (
-// kisi chiz me band krna pdta hai issliye <> ye use krte hai nahi to html or react me kich kich ho jayega 
-    <>
-      <Chai />
-      <h1> chai or react {username}</h1>
-      <p>     test paragraphing</p>
-    </>
+
+    <div className="container">
+      <h1>React Counter App</h1>
+
+
+      <h2>{count}</h2>
+
+      <div className="buttons">
+        <button onClick={decrease}>-</button>
+        <button onClick={reset}>Reset</button>
+        <button onClick={increase}>+</button>
+
+      </div>
+    </div>
+
   )
 }
 
-export default App
+export default App;
